@@ -282,7 +282,7 @@ def read_pdf(file, pages=[], laycntrl={}, codec='utf-8', strip_control=False,
             pages to be extracted, by default (default is `[]`) all
             pages are extracted.
         codec (str): A string giving the codec (default is 'utf-8').
-        strip_control (bool): (default is `False`)
+        strip_control (bool): (default is `False`) not used in XML2Converter.
         password (str): A string giving the password (default is '').
         caching (bool): (default is `True`)
         maxpages (int): (default is `0`)

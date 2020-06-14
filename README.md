@@ -63,7 +63,7 @@ head(d[["text"]])
 
 The **R** package **pdfminer** only returns raw data extracted from the
 **PDF**-file. To refine this raw data into a format usable for data analysis
-the [**pdfmole**](https://CRAN.R-project.org/package=pdfmole) can be used.
+the **pdfmole** can be used.
  
 
 ### Details on the data exchange
@@ -71,14 +71,14 @@ The data exchange between **Python** and **R** can be executed by
 one of the methods `"csv"`, `"sqlite"` or `"PythonInR"`.
 The methods `"csv"` and `"sqlite"` call **Python** via the `system2`
 command and the data is written out to temporary files.
-The **Python** version called by `system2` can be changes by changing the
+The **Python** version called by `system2` can be changed by changing the
 `pyexe` argument. For example if a specific conda environment (in this
 example the `pdf` environment) should be used. Obtain the path to
 the **Python** executable
 ```{python}
 import sys
 sys.executable
-Py> '/home/f/anaconda3/envs/pdf/bin/python'
+#Py> '/home/f/anaconda3/envs/pdf/bin/python'
 ```
 and specify it via the `pyexe` argument.
 ```{r}

@@ -10,7 +10,6 @@ read.pdf(
   method = c("csv", "sqlite", "PythonInR"),
   laycntrl = layout_control(),
   encoding = "utf8",
-  strip_control = FALSE,
   password = "",
   caching = TRUE,
   maxpages = Inf,
@@ -20,21 +19,19 @@ read.pdf(
 )
 }
 \arguments{
-\item{file}{a character giving the name of the \code{PDF}-file the data are 
+\item{file}{a character string giving the name of the \code{PDF}-file the data are 
 to be read from.}
 
 \item{pages}{an integer giving the pages which should be extracted 
 (default is \code{integer()}).}
 
-\item{method}{a character giving the data transfer method. Allowed values
+\item{method}{a character string giving the data transfer method. Allowed values
 are \code{"csv"} (default), \code{"sqlite"} and \code{"PythonInR"} (recommended).}
 
 \item{laycntrl}{a list of layout options, created by the function \code{layout_control}.}
 
 \item{encoding}{a character string giving the encoding of the output 
 (default is \code{"utf8"}).}
-
-\item{strip_control}{a logical, if \code{TRUE} control characters are removed.}
 
 \item{password}{a character string giving the password necessary to access 
 the \code{PDF} (default is \code{""}).}
@@ -48,24 +45,22 @@ uses more memory.}
 \item{rotation}{an integer giving the rotation of the page, allowed values
 are \code{c(0, 90, 180, 270)}.}
 
-\item{image_dir}{a character giving the path to the folder, where the images
+\item{image_dir}{a character string giving the path to the folder, where the images
 should be stored (default is \code{""}).}
 
-\item{pyexe}{a character giving the path to the python executeable 
+\item{pyexe}{a character string giving the path to the python executable 
 (default is \code{"python3"}). Only used when \code{method} is 
 \code{"csv"} or \code{"sqlite"}.}
 }
 \value{
 Returns a object of class \code{"pdf_document"}.
-        A object of class \code{"pdf_document"} is a list where
-        each element of the list is an object of class \code{"pdf_page"}.
 }
 \description{
 Extract  \code{PDF} document
 }
 \examples{
-\dontrun{
-ifi <- system.file("pdfs/cars.pdf", package = "pdfmole")
-read.pdf(ifi)
+if (is_pdfminer_installed()) {
+pdf_file <- system.file("pdfs/cars.pdf", package = "pdfminer")
+read.pdf(pdf_file)
 }
 }

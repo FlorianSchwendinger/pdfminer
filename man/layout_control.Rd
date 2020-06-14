@@ -52,3 +52,6 @@ Returns a list with the layout control variables.
 \description{
 Extract  \code{PDF} document
 }
+\examples{
+layout_control()
+}
