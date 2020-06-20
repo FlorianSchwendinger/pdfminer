@@ -12,7 +12,7 @@ pip install pandas
 
 ### **R**
 ```{r}
-install.packages("pdfminer")
+remotes::install_github("FlorianSchwendinger/pdfminer")
 ```
 
 ## Basic usage
