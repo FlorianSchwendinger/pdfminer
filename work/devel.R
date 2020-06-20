@@ -7,9 +7,9 @@ file <- system.file("pdfs/cars.pdf", package = "pdfminer")
 
 pyexe <- '/home/f/anaconda3/envs/pdf/bin/python'
 
-d1 <- read.pdf(file, method = "csv", pyexe = pyexe)
-d2 <- read.pdf(file, method = "sqlite", pyexe = pyexe)
-d3 <- read.pdf(file, method = "PythonInR")
+d1 <- read_chars(file, method = "csv", pyexe = pyexe)
+d2 <- read_chars(file, method = "sqlite", pyexe = pyexe)
+d3 <- read_chars(file, method = "PythonInR")
 
 d1
 d2

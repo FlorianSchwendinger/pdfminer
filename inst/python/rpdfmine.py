@@ -270,7 +270,7 @@ class PdfDoc:
             df.to_csv(path, sep=sep, index=False, quoting=csv.QUOTE_ALL, escapechar="\\")
 
 
-def read_pdf(file, pages=[], laycntrl={}, codec='utf-8', strip_control=False,
+def read_chars(file, pages=[], laycntrl={}, codec='utf-8', strip_control=False,
              password='', caching=True, maxpages=0, rotation=0, image_dir=''):
     """ Reads a file in pdf format.
 
@@ -331,7 +331,7 @@ if __name__ == '__main__':
     argv[0]: script name
     argv[1]: output format ["sqlite", "csv"]
     argv[2]: output file (a character giving the path to the output file)
-    argv[3]: arguments passed to read_pdf in json format
+    argv[3]: arguments passed to read_chars in json format
 
     python rpdfmine.py sqlite cars.sqlite '{"file": "../samples/cars.pdf"}'
     python rpdfmine.py csv cars '{"file": "../samples/cars.pdf"}'
@@ -340,7 +340,7 @@ if __name__ == '__main__':
     output_file = sys.argv[2]
     arguments = json.loads(sys.argv[3])
 
-    doc = read_pdf(**arguments)
+    doc = read_chars(**arguments)
     if output_format == "sqlite":
         doc.to_sqlite(database = output_file)
     elif output_format == "csv":

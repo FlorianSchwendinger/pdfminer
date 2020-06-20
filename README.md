@@ -19,7 +19,7 @@ install.packages("pdfminer")
 ```{r}
 library("pdfminer")
 
-args(read.pdf)
+args(read_chars)
 #R> function (file, pages = integer(), method = c("csv", "sqlite", 
 #R>     "PythonInR"), laycntrl = layout_control(), encoding = "utf8", 
 #R>     strip_control = FALSE, password = "", caching = TRUE, maxpages = Inf, 
@@ -28,13 +28,13 @@ args(read.pdf)
 
 ```{r}
 file <- system.file("pdfs/cars.pdf", package = "pdfminer")
-d <- read.pdf(file, method = "csv")
+d <- read_chars(file, method = "csv")
 #R> A pdf document with 2 pages and
 #R>   metainfo text line rect curve figure textline textbox textgroup image
 #R> 1        2  469    0    0     0      0      155      10         8     0
 #R> elements.
 ```
-The function `read.pdf()` returns an object of class `pdf_document`
+The function `read_chars()` returns an object of class `pdf_document`
 (a list containing `data.frame`'s). Each object of class `pdf_document`
 contains the elements:
 
@@ -83,5 +83,5 @@ sys.executable
 and specify it via the `pyexe` argument.
 ```{r}
 pyexe <- '/home/f/anaconda3/envs/pdf/bin/python'
-d <- read.pdf(file, method = "sqlite", pyexe=pyexe)
+d <- read_chars(file, method = "sqlite", pyexe=pyexe)
 ```

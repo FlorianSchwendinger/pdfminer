@@ -44,7 +44,7 @@ layout_control <- function(line_overlap = 0.5, char_margin = 2.0, line_margin = 
 
 
 #  ---------------------------------------------------------
-#  read.pdf
+#  read_chars
 #  ========
 #' @title Read a \code{PDF} document.
 #' @description Extract  \code{PDF} document
@@ -73,12 +73,12 @@ layout_control <- function(line_overlap = 0.5, char_margin = 2.0, line_margin = 
 #' @examples
 #' if (is_pdfminer_installed()) {
 #' pdf_file <- system.file("pdfs/cars.pdf", package = "pdfminer")
-#' read.pdf(pdf_file)
+#' read_chars(pdf_file)
 #' }
 #' @return Returns a object of class \code{"pdf_document"}.
 #' @export
 ##  ---------------------------------------------------------
-read.pdf <- function(file, pages = integer(), method = c('csv', 'sqlite', 'PythonInR'),
+read_chars <- function(file, pages = integer(), method = c('csv', 'sqlite', 'PythonInR'),
     laycntrl = layout_control(), encoding = 'utf8', password = '', caching = TRUE, 
     maxpages = Inf, rotation = 0L, image_dir = '', pyexe='python3') {
 
@@ -130,7 +130,7 @@ read.pdf <- function(file, pages = integer(), method = c('csv', 'sqlite', 'Pytho
         PythonInR::pyExec(sprintf('sys.path.append("%s")', script_folder))
         PythonInR::pyExec('import rpdfmine as rpdf')
         PythonInR::pySet('cntrl', cntrl)
-        PythonInR::pyExec('x = rpdf.read_pdf(**cntrl).to_dict(dtype="data.frame")')
+        PythonInR::pyExec('x = rpdf.read_chars(**cntrl).to_dict(dtype="data.frame")')
         dat <- PythonInR::pyGet("x")
         dat <- lapply(dat, to_data_frame)
     }

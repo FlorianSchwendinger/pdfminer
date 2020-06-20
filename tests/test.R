@@ -1,10 +1,10 @@
 
 library("pdfminer")
 
-test_read.pdf <- function() {
+test__read_chars <- function() {
     if (is_pdfminer_installed()) {    
         pdf_file <- system.file("pdfs/cars.pdf", package = "pdfminer")
-        x <- read.pdf(pdf_file)
+        x <- read_chars(pdf_file)
         if (inherits(x, "pdf_document")) {
             return("Test OK!")
         } else {
@@ -16,5 +16,5 @@ test_read.pdf <- function() {
 }
 
 
-test_read.pdf()
+test__read_chars()
 
