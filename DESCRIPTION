@@ -2,8 +2,8 @@ Package: pdfminer
 Type: Package
 Title: Read Portable Document Format (PDF) Files
 Version: 1.0
-Authors@R: c(person("Florian", "Schwendinger", role = c("aut", "cre"), email = "FlorianSchwendinger@gmx.at"),
-             person("Benjamin", "Schwendinger", role = "aut"))
+Authors@R: c(person("Florian", "Schwendinger", role = c("aut", "cre", "cph"), email = "FlorianSchwendinger@gmx.at"),
+             person("Benjamin", "Schwendinger", role = c("aut", "cph")))
 Description: Provides an interface to 'PDFMiner' <https://github.com/pdfminer/pdfminer.six> 
     a 'Python' package for extracting information from 'PDF'-files. 
     'PDFMiner' has the goal to get all information available in a 'PDF'-file, 

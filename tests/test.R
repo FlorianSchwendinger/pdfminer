@@ -1,4 +1,5 @@
 
+library("pdfminer")
 
 test_read.pdf <- function() {
     if (is_pdfminer_installed()) {    

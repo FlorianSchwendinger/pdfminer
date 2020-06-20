@@ -6,5 +6,3 @@ try:
     is_installed = True
 except BaseException:
     is_installed = False
-
-print(is_installed)

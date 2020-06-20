@@ -89,7 +89,8 @@ is_pdfminer_installed <- function(method = c('csv', 'sqlite', 'PythonInR'), pyex
         unname(PythonInR::pyExecg(py_fun_is_pdfminer_installed, "is_installed"))
     } else {
         py_script <- system.file("python/is_pdfminer_installed.py", package = "pdfminer")
-        out <- system2(pyexe, py_script, stdout=TRUE, stderr=TRUE)
+        err <- try(out <- system2(pyexe, py_script, stdout=TRUE, stderr=TRUE), silent = TRUE)
+        if (inherits(err, "try-error")) return(FALSE)
         isTRUE(trimws(out) == "True")
     }
 }
